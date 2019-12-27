@@ -64,7 +64,7 @@ public interface CameraModel extends NamedModelElement
      * @param result The result array
      * @return The result array
      */
-    float[] computeViewMatrix(float result[]);
+    double[] computeViewMatrix(double result[]);
 
     /**
      * Compute the projection matrix for this camera.<br>
@@ -80,12 +80,12 @@ public interface CameraModel extends NamedModelElement
      * camera will be used.
      * @return The result array
      */
-    float[] computeProjectionMatrix(float result[], Float aspectRatio);
+    double[] computeProjectionMatrix(double result[], Double aspectRatio);
 
     /**
      * Create the supplier of the view matrix for this camera model.<br>
      * <br> 
-     * The matrix will be provided as a float array with 16 elements, 
+     * The matrix will be provided as a double array with 16 elements, 
      * storing the matrix entries in column-major order.<br>
      * <br>
      * Note: The supplier MAY always return the same array instance.
@@ -93,12 +93,12 @@ public interface CameraModel extends NamedModelElement
      * 
      * @return The supplier.
      */
-    Supplier<float[]> createViewMatrixSupplier();
+    Supplier<double[]> createViewMatrixSupplier();
 
     /**
      * Create the supplier of the projection matrix for this camera model.<br>
      * <br>
-     * The matrix will be provided as a float array with 16 elements, 
+     * The matrix will be provided as a double array with 16 elements, 
      * storing the matrix entries in column-major order.<br>
      * <br>
      * Note: If the type of the camera that this {@link CameraModel} was 
@@ -112,7 +112,7 @@ public interface CameraModel extends NamedModelElement
      * aspect ratio of the camera will be used.
      * @return The supplier
      */
-    Supplier<float[]> createProjectionMatrixSupplier(
+    Supplier<double[]> createProjectionMatrixSupplier(
         DoubleSupplier aspectRatioSupplier);
 
 }

@@ -57,7 +57,7 @@ public class DefaultTechniqueStatesFunctionsModelV1
     }
 
     @Override
-    public float[] getBlendColor()
+    public double[] getBlendColor()
     {
         return Optionals.of(
             functions.getBlendColor(), 
@@ -113,7 +113,7 @@ public class DefaultTechniqueStatesFunctionsModelV1
     }
 
     @Override
-    public float[] getDepthRange()
+    public double[] getDepthRange()
     {
         return Optionals.of(
             functions.getDepthRange(),
@@ -129,7 +129,7 @@ public class DefaultTechniqueStatesFunctionsModelV1
     }
 
     @Override
-    public float[] getLineWidth()
+    public double[] getLineWidth()
     {
         return Optionals.of(
             functions.getLineWidth(),
@@ -137,7 +137,7 @@ public class DefaultTechniqueStatesFunctionsModelV1
     }
 
     @Override
-    public float[] getPolygonOffset()
+    public double[] getPolygonOffset()
     {
         return Optionals.of( 
             functions.getPolygonOffset(),

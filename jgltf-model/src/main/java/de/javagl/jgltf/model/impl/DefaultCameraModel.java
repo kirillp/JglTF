@@ -58,12 +58,12 @@ public final class DefaultCameraModel extends AbstractNamedModelElement
     /**
      * The function that computes the view matrix
      */
-    private final Function<float[], float[]> viewMatrixComputer;
+    private final Function<double[], double[]> viewMatrixComputer;
     
     /**
      * The function that computes the projection matrix
      */
-    private final BiFunction<float[], Float, float[]> projectionMatrixComputer;
+    private final BiFunction<double[], Double, double[]> projectionMatrixComputer;
 
     /**
      * Creates a new instance
@@ -72,8 +72,8 @@ public final class DefaultCameraModel extends AbstractNamedModelElement
      * projection matrix
      */
     public DefaultCameraModel(
-        Function<float[], float[]> viewMatrixComputer, 
-        BiFunction<float[], Float, float[]> projectionMatrixComputer)
+        Function<double[], double[]> viewMatrixComputer, 
+        BiFunction<double[], Double, double[]> projectionMatrixComputer)
     {
         this.viewMatrixComputer =
             Objects.requireNonNull(viewMatrixComputer, 
@@ -118,34 +118,34 @@ public final class DefaultCameraModel extends AbstractNamedModelElement
     }
 
     @Override
-    public float[] computeViewMatrix(float result[])
+    public double[] computeViewMatrix(double result[])
     {
         return viewMatrixComputer.apply(result);
     }
     
     @Override
-    public float[] computeProjectionMatrix(float result[], Float aspectRatio)
+    public double[] computeProjectionMatrix(double result[], Double aspectRatio)
     {
         return projectionMatrixComputer.apply(result, aspectRatio);
     }
     
     @Override
-    public Supplier<float[]> createViewMatrixSupplier()
+    public Supplier<double[]> createViewMatrixSupplier()
     {
         return Suppliers.createTransformSupplier(this, 
             CameraModel::computeViewMatrix);
     }
     
     @Override
-    public Supplier<float[]> createProjectionMatrixSupplier(
+    public Supplier<double[]> createProjectionMatrixSupplier(
         DoubleSupplier aspectRatioSupplier)
     {
         return Suppliers.createTransformSupplier(this, (c, t) -> 
         {
-            Float aspectRatio = null;
+            Double aspectRatio = null;
             if (aspectRatioSupplier != null)
             {
-                aspectRatio = (float)aspectRatioSupplier.getAsDouble();
+                aspectRatio = aspectRatioSupplier.getAsDouble();
             }
             computeProjectionMatrix(t, aspectRatio);
         });

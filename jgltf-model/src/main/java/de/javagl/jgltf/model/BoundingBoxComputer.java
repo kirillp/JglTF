@@ -67,7 +67,7 @@ class BoundingBoxComputer
         List<SceneModel> sceneModels = gltfModel.getSceneModels();
         for (SceneModel sceneModel : sceneModels)
         {
-            float rootTransform[] = MathUtils.createIdentity4x4();
+            double rootTransform[] = MathUtils.createIdentity4x4();
             computeSceneBoundingBox(sceneModel, rootTransform, boundingBox);
         }
         return boundingBox;
@@ -86,7 +86,7 @@ class BoundingBoxComputer
      * @return The result
      */
     private BoundingBox computeSceneBoundingBox(
-        SceneModel sceneModel, float transform[], BoundingBox boundingBox)
+        SceneModel sceneModel, double transform[], BoundingBox boundingBox)
     {
         BoundingBox localResult = boundingBox;
         if (localResult == null)
@@ -115,7 +115,7 @@ class BoundingBoxComputer
      * @return The result
      */
     private BoundingBox computeNodeBoundingBox(
-        NodeModel nodeModel, float parentTransform[], BoundingBox boundingBox) 
+        NodeModel nodeModel, double parentTransform[], BoundingBox boundingBox) 
     {
         BoundingBox result = boundingBox;
         if (result == null)
@@ -123,8 +123,8 @@ class BoundingBoxComputer
             result = new BoundingBox();
         }
 
-        float[] localTransform = nodeModel.computeLocalTransform(null);
-        float[] transform = new float[16];
+        double[] localTransform = nodeModel.computeLocalTransform(null);
+        double[] transform = new double[16];
         MathUtils.mul4x4(parentTransform, localTransform, transform);
         
         List<MeshModel> meshModels = nodeModel.getMeshModels();
@@ -157,7 +157,7 @@ class BoundingBoxComputer
      * @return The result
      */
     private BoundingBox computeMeshBoundingBox(
-        MeshModel meshModel, float transform[], BoundingBox boundingBox)
+        MeshModel meshModel, double transform[], BoundingBox boundingBox)
     {
         BoundingBox result = boundingBox;
         if (result == null)
@@ -189,12 +189,12 @@ class BoundingBoxComputer
      * @return The {@link BoundingBox}, or <code>null</code> if the given
      * {@link MeshPrimitiveModel} does not refer to an {@link AccessorModel} 
      * with its <code>"POSITION"</code> attribute. If if refers to
-     * an {@link AccessorModel} that does not contain 3D float elements,
+     * an {@link AccessorModel} that does not contain 3D double elements,
      * then a warning will be printed and <code>null</code> will be
      * returned. 
      */
     private BoundingBox computeBoundingBox(
-        MeshPrimitiveModel meshPrimitiveModel, float transform[])
+        MeshPrimitiveModel meshPrimitiveModel, double transform[])
     {
         Map<String, AccessorModel> attributes = 
             meshPrimitiveModel.getAttributes();
@@ -215,7 +215,7 @@ class BoundingBoxComputer
             return null;
         }
         Class<?> componentDataType = accessorModel.getComponentDataType();
-        if (!componentDataType.equals(float.class))
+        if (!componentDataType.equals(double.class))
         {
             logger.warning("Mesh primitive " + positionsAttributeName + 
                 " attribute refers to an accessor with component type " + 
@@ -226,11 +226,11 @@ class BoundingBoxComputer
         AccessorData accessorData = accessorModel.getAccessorData();
         AccessorFloatData accessorFloatData = (AccessorFloatData)accessorData;
         
-        float point[] = new float[3];
-        float transformedPoint[];
+        double point[] = new double[3];
+        double transformedPoint[];
         if (transform != null)
         {
-            transformedPoint = new float[3];
+            transformedPoint = new double[3];
         }
         else
         {

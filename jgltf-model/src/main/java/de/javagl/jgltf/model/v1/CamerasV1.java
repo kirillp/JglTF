@@ -65,17 +65,17 @@ class CamerasV1
      * @param result The array storing the result
      * @return The result array
      */
-    static float[] computeProjectionMatrix(
-        Camera camera, Float aspectRatio, float result[])
+    static double[] computeProjectionMatrix(
+        Camera camera, Double aspectRatio, double result[])
     {
-        float localResult[] = Utils.validate(result, 16);
+        double localResult[] = Utils.validate(result, 16);
         String cameraType = camera.getType();
         if ("perspective".equals(cameraType))
         {
             CameraPerspective cameraPerspective = camera.getPerspective();
-            float fovRad = cameraPerspective.getYfov();
-            float fovDeg = (float)Math.toDegrees(fovRad);
-            float localAspectRatio = 1.0f;
+            double fovRad = cameraPerspective.getYfov();
+            double fovDeg = (double)Math.toDegrees(fovRad);
+            double localAspectRatio = 1.0f;
             if (aspectRatio != null)
             {
                 localAspectRatio = aspectRatio;
@@ -84,8 +84,8 @@ class CamerasV1
             {
                 localAspectRatio = cameraPerspective.getAspectRatio();
             }
-            float zNear = cameraPerspective.getZnear();
-            Float zFar = cameraPerspective.getZfar();
+            double zNear = cameraPerspective.getZnear();
+            Double zFar = cameraPerspective.getZfar();
             if (zFar == null)
             {
                 MathUtils.infinitePerspective4x4(
@@ -101,10 +101,10 @@ class CamerasV1
         {
             CameraOrthographic cameraOrthographic = 
                 camera.getOrthographic();
-            float xMag = cameraOrthographic.getXmag();
-            float yMag = cameraOrthographic.getYmag();
-            float zNear = cameraOrthographic.getZnear();
-            float zFar = cameraOrthographic.getZfar();
+            double xMag = cameraOrthographic.getXmag();
+            double yMag = cameraOrthographic.getYmag();
+            double zNear = cameraOrthographic.getZnear();
+            double zFar = cameraOrthographic.getZfar();
             MathUtils.setIdentity4x4(localResult);
             localResult[0] = 1.0f / xMag;
             localResult[5] = 1.0f / yMag;

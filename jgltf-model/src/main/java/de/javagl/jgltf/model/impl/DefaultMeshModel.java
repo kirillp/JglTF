@@ -48,7 +48,7 @@ public final class DefaultMeshModel extends AbstractNamedModelElement
     /**
      * The morph target weights
      */
-    private float weights[];
+    private double weights[];
     
     /**
      * Creates a new instance
@@ -74,7 +74,7 @@ public final class DefaultMeshModel extends AbstractNamedModelElement
      * 
      * @param weights the default morph target weights
      */
-    public void setWeights(float[] weights)
+    public void setWeights(double[] weights)
     {
         this.weights = Optionals.clone(weights);
     }
@@ -86,7 +86,7 @@ public final class DefaultMeshModel extends AbstractNamedModelElement
     }
     
     @Override
-    public float[] getWeights()
+    public double[] getWeights()
     {
         return Optionals.clone(weights);
     }

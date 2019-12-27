@@ -298,7 +298,7 @@ class MaterialModelHandler
         {
             values.put("hasBaseColorTexture", 0);
         }
-        float[] baseColorFactor = Optionals.of(
+        double[] baseColorFactor = Optionals.of(
             pbrMetallicRoughness.getBaseColorFactor(),
             pbrMetallicRoughness.defaultBaseColorFactor());
         values.put("baseColorFactor", baseColorFactor);
@@ -318,12 +318,12 @@ class MaterialModelHandler
         {
             values.put("hasMetallicRoughnessTexture", 0);
         }
-        float metallicFactor = Optionals.of(
+        double metallicFactor = Optionals.of(
             pbrMetallicRoughness.getMetallicFactor(),
             pbrMetallicRoughness.defaultMetallicFactor());
         values.put("metallicFactor", metallicFactor);
         
-        float roughnessFactor = Optionals.of(
+        double roughnessFactor = Optionals.of(
             pbrMetallicRoughness.getRoughnessFactor(),
             pbrMetallicRoughness.defaultRoughnessFactor());
         values.put("roughnessFactor", roughnessFactor);
@@ -339,7 +339,7 @@ class MaterialModelHandler
             values.put("normalTexture", 
                 normalTextureInfo.getIndex());
             
-            float normalScale = Optionals.of(
+            double normalScale = Optionals.of(
                 normalTextureInfo.getScale(),
                 normalTextureInfo.defaultScale());
             values.put("normalScale", normalScale);
@@ -360,7 +360,7 @@ class MaterialModelHandler
             values.put("occlusionTexture", 
                 occlusionTextureInfo.getIndex());
             
-            float occlusionStrength = Optionals.of(
+            double occlusionStrength = Optionals.of(
                 occlusionTextureInfo.getStrength(),
                 occlusionTextureInfo.defaultStrength());
             values.put("occlusionStrength", occlusionStrength);
@@ -388,13 +388,13 @@ class MaterialModelHandler
             values.put("hasEmissiveTexture", 0);
         }
         
-        float[] emissiveFactor = Optionals.of(
+        double[] emissiveFactor = Optionals.of(
             material.getEmissiveFactor(),
             material.defaultEmissiveFactor());
         values.put("emissiveFactor", emissiveFactor);
         
         
-        float lightPosition[] = { -800,500,500 };
+        double lightPosition[] = { -800,500,500 };
         values.put("lightPosition", lightPosition);
         
         

@@ -577,7 +577,7 @@ public final class GltfModelV1 implements GltfModel
         for (Entry<String, Skin> entry : skins.entrySet())
         {
             Skin skin = entry.getValue();
-            float[] bindShapeMatrix = skin.getBindShapeMatrix();
+            double[] bindShapeMatrix = skin.getBindShapeMatrix();
             skinModels.add(new DefaultSkinModel(bindShapeMatrix));
         }
     }
@@ -1066,10 +1066,10 @@ public final class GltfModelV1 implements GltfModel
                 nodeModel.setSkinModel(skinModel);
             }
             
-            float matrix[] = node.getMatrix();
-            float translation[] = node.getTranslation();
-            float rotation[] = node.getRotation();
-            float scale[] = node.getScale();
+            double matrix[] = node.getMatrix();
+            double translation[] = node.getTranslation();
+            double rotation[] = node.getRotation();
+            double scale[] = node.getScale();
             nodeModel.setMatrix(Optionals.clone(matrix));
             nodeModel.setTranslation(Optionals.clone(translation));
             nodeModel.setRotation(Optionals.clone(rotation));
@@ -1420,17 +1420,17 @@ public final class GltfModelV1 implements GltfModel
                 Camera camera = cameras.get(cameraId);
                 NodeModel nodeModel = get("nodes", nodeId, nodeModels);
                 
-                Function<float[], float[]> viewMatrixComputer = result -> 
+                Function<double[], double[]> viewMatrixComputer = result -> 
                 {
-                    float localResult[] = Utils.validate(result, 16);
+                    double localResult[] = Utils.validate(result, 16);
                     nodeModel.computeGlobalTransform(localResult);
                     MathUtils.invert4x4(localResult, localResult);
                     return localResult;
                 };
-                BiFunction<float[], Float, float[]> projectionMatrixComputer = 
+                BiFunction<double[], Double, double[]> projectionMatrixComputer = 
                     (result, aspectRatio) -> 
                 {
-                    float localResult[] = Utils.validate(result, 16);
+                    double localResult[] = Utils.validate(result, 16);
                     CamerasV1.computeProjectionMatrix(
                         camera, aspectRatio, localResult);
                     return localResult;

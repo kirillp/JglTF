@@ -40,7 +40,7 @@ public class Mesh
      * &nbsp;&nbsp;The elements of this array (optional) 
      * 
      */
-    private List<Float> weights;
+    private List<Double> weights;
 
     /**
      * An array of primitives, each defining geometry to be rendered with a 
@@ -136,7 +136,7 @@ public class Mesh
      * the given constraints
      * 
      */
-    public void setWeights(List<Float> weights) {
+    public void setWeights(List<Double> weights) {
         if (weights == null) {
             this.weights = weights;
             return ;
@@ -156,7 +156,7 @@ public class Mesh
      * @return The weights
      * 
      */
-    public List<Float> getWeights() {
+    public List<Double> getWeights() {
         return this.weights;
     }
 
@@ -169,12 +169,12 @@ public class Mesh
      * @throws NullPointerException If the given element is <code>null</code>
      * 
      */
-    public void addWeights(Float element) {
+    public void addWeights(Double element) {
         if (element == null) {
             throw new NullPointerException("The element may not be null");
         }
-        List<Float> oldList = this.weights;
-        List<Float> newList = new ArrayList<Float>();
+        List<Double> oldList = this.weights;
+        List<Double> newList = new ArrayList<Double>();
         if (oldList!= null) {
             newList.addAll(oldList);
         }
@@ -193,12 +193,12 @@ public class Mesh
      * @throws NullPointerException If the given element is <code>null</code>
      * 
      */
-    public void removeWeights(Float element) {
+    public void removeWeights(Double element) {
         if (element == null) {
             throw new NullPointerException("The element may not be null");
         }
-        List<Float> oldList = this.weights;
-        List<Float> newList = new ArrayList<Float>();
+        List<Double> oldList = this.weights;
+        List<Double> newList = new ArrayList<Double>();
         if (oldList!= null) {
             newList.addAll(oldList);
         }

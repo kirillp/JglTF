@@ -80,7 +80,7 @@ public interface NodeModel extends NamedModelElement
      * @throws IllegalArgumentException If the given array does not have
      * a length of 16
      */
-    void setMatrix(float matrix[]);
+    void setMatrix(double[] matrix);
     
     /**
      * Returns a <b>reference</b> to the array storing the matrix of this node.
@@ -89,7 +89,7 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The matrix
      */
-    float[] getMatrix();
+    double[] getMatrix();
 
     /**
      * Set the translation of this node to be a <b>reference</b> to the given
@@ -99,7 +99,7 @@ public interface NodeModel extends NamedModelElement
      * @throws IllegalArgumentException If the given array does not have
      * a length of 3
      */
-    void setTranslation(float translation[]);
+    void setTranslation(double[] translation);
     
     /**
      * Returns a <b>reference</b> to the array storing the translation of this 
@@ -107,18 +107,18 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The translation
      */
-    float[] getTranslation();
+    double[] getTranslation();
 
     /**
      * Set the rotation of this node to be a <b>reference</b> to the given
      * array. The array is assumed to be a quaternion, consisting of 4
-     * float elements.
+     * double elements.
      * 
      * @param rotation The rotation
      * @throws IllegalArgumentException If the given array does not have
      * a length of 4
      */
-    void setRotation(float rotation[]);
+    void setRotation(double[] rotation);
     
     /**
      * Returns a <b>reference</b> to the array storing the rotation of this 
@@ -126,7 +126,7 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The rotation
      */
-    float[] getRotation();
+    double[] getRotation();
 
     /**
      * Set the scale of this node to be a <b>reference</b> to the given
@@ -136,7 +136,7 @@ public interface NodeModel extends NamedModelElement
      * @throws IllegalArgumentException If the given array does not have
      * a length of 3
      */
-    void setScale(float scale[]);
+    void setScale(double scale[]);
 
     /**
      * Returns a <b>reference</b> to the array storing the scale of this 
@@ -144,7 +144,7 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The scale
      */
-    float[] getScale();
+    double[] getScale();
     
     /**
      * Set the morph target weights to be a <b>reference</b> to the given
@@ -152,7 +152,7 @@ public interface NodeModel extends NamedModelElement
      * 
      * @param weights The weights
      */
-    void setWeights(float weights[]);
+    void setWeights(double weights[]);
     
     /**
      * Returns a <b>reference</b> to the morph target weights, 
@@ -160,7 +160,7 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The morph target weights
      */
-    float[] getWeights();
+    double[] getWeights();
     
     /**
      * Computes the local transform of this node.<br>
@@ -173,7 +173,7 @@ public interface NodeModel extends NamedModelElement
      * @param result The result array
      * @return The result array
      */
-    float[] computeLocalTransform(float result[]);
+    double[] computeLocalTransform(double result[]);
 
     /**
      * Computes the global transform of this node.<br>
@@ -186,13 +186,13 @@ public interface NodeModel extends NamedModelElement
      * @param result The result array
      * @return The result array
      */
-    float[] computeGlobalTransform(float result[]);
+    double[] computeGlobalTransform(double result[]);
 
     /**
      * Creates a supplier for the global transform matrix of this node 
      * model.<br>
      * <br> 
-     * The matrix will be provided as a float array with 16 elements, 
+     * The matrix will be provided as a double array with 16 elements, 
      * storing the matrix entries in column-major order.<br>
      * <br>
      * Note: The supplier MAY always return the same array instance.
@@ -200,12 +200,12 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The supplier
      */
-    Supplier<float[]> createGlobalTransformSupplier();
+    Supplier<double[]> createGlobalTransformSupplier();
 
     /**
      * Creates a supplier for the local transform matrix of this node model.<br>
      * <br> 
-     * The matrix will be provided as a float array with 16 elements, 
+     * The matrix will be provided as a double array with 16 elements, 
      * storing the matrix entries in column-major order.<br>
      * <br>
      * Note: The supplier MAY always return the same array instance.
@@ -213,6 +213,6 @@ public interface NodeModel extends NamedModelElement
      * 
      * @return The supplier
      */
-    Supplier<float[]> createLocalTransformSupplier();
+    Supplier<double[]> createLocalTransformSupplier();
 
 }
