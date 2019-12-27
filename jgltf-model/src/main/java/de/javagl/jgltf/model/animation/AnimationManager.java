@@ -83,7 +83,7 @@ public final class AnimationManager
     /**
      * The maximum {@link Animation#getEndTimeS()} of all animations
      */
-    private float maxEndTimeS;
+    private double maxEndTimeS;
     
     /**
      * The list of {@link AnimationManagerListener}s that want to be 
@@ -123,10 +123,10 @@ public final class AnimationManager
      * 
      * @return The animation time
      */
-    float getCurrentTimeS()
+    double getCurrentTimeS()
     {
         long timeNs = currentNs - startNs;
-        float timeS = timeNs * 1e-9f;
+        double timeS = timeNs * 1e-9f;
         return timeS;
     }
     
@@ -213,7 +213,7 @@ public final class AnimationManager
     void performStep(long deltaNs)
     {
         currentNs += deltaNs;
-        float currentTimeS = getCurrentTimeS();
+        double currentTimeS = getCurrentTimeS();
         if (animationPolicy == AnimationPolicy.ONCE && 
             currentTimeS > maxEndTimeS)
         {
@@ -224,14 +224,14 @@ public final class AnimationManager
         {
             if (animationPolicy == AnimationPolicy.LOOP)
             {
-                float loopTimeS = currentTimeS % maxEndTimeS;
+                double loopTimeS = currentTimeS % maxEndTimeS;
                 animation.update(loopTimeS);
             }
             else if (animationPolicy == AnimationPolicy.PING_PONG)
             {
                 int interval = (int)(currentTimeS / maxEndTimeS);
-                float loopTimeS = currentTimeS % maxEndTimeS;
-                float pingPongTimeS = loopTimeS;
+                double loopTimeS = currentTimeS % maxEndTimeS;
+                double pingPongTimeS = loopTimeS;
                 if ((interval & 1) != 0)
                 {
                     pingPongTimeS = maxEndTimeS - loopTimeS; 

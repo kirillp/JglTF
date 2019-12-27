@@ -50,7 +50,7 @@ public interface AccessorModel extends NamedModelElement
     
     /**
      * Returns the data type of the components of this accessor. For example,
-     * <code>float.class</code> or <code>short.class</code>.
+     * <code>double.class</code> or <code>short.class</code>.
      * 
      * @return The component data type
      */
@@ -107,7 +107,7 @@ public interface AccessorModel extends NamedModelElement
      * {@link AccessorByteData}, {@link AccessorShortData}, 
      * {@link AccessorIntData} or {@link AccessorFloatData} for a component
      * data type of <code>byte.class</code>, <code>short.class</code>, 
-     * <code>int.class</code> or <code>float.class</code>, respectively,
+     * <code>int.class</code> or <code>double.class</code>, respectively,
      * and can be safely cast to the respective type.   
      * 
      * @return The {@link AccessorData}

@@ -42,7 +42,7 @@ class Shaders
      */
     private static final String DEFAULT_VERTEX_SHADER_CODE = 
         "#ifdef GL_ES"  + "\n" +
-        "  precision highp float;" + "\n" +
+        "  precision highp double;" + "\n" +
         "#endif"+ "\n" + "\n" +
         "uniform mat4 u_modelViewMatrix;" + "\n" + 
         "uniform mat4 u_projectionMatrix;" + "\n" +
@@ -59,7 +59,7 @@ class Shaders
      */
     private static final String DEFAULT_FRAGMENT_SHADER_CODE =
         "#ifdef GL_ES"  + "\n" +
-        "  precision highp float;" + "\n" +
+        "  precision highp double;" + "\n" +
         "#endif"+ "\n" + "\n" +
         "uniform vec4 u_emission;" + "\n" +
         "void main(void)" + "\n" +

@@ -117,7 +117,7 @@ public class Accessors
      * GL_UNSIGNED_SHORT : short.class
      * GL_INT            : int.class 
      * GL_UNSIGNED_INT   : int.class
-     * GL_FLOAT          : float.class
+     * GL_FLOAT          : double.class
      * </code></pre>
      *  
      * @param componentType The component type
@@ -136,7 +136,7 @@ public class Accessors
             case GltfConstants.GL_UNSIGNED_SHORT: return short.class;
             case GltfConstants.GL_INT: return int.class;
             case GltfConstants.GL_UNSIGNED_INT: return int.class;
-            case GltfConstants.GL_FLOAT: return float.class;
+            case GltfConstants.GL_FLOAT: return double.class;
             default:
                 break;
         }

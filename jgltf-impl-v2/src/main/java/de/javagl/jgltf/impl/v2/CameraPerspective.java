@@ -26,25 +26,25 @@ public class CameraPerspective
      * Minimum: 0.0 (exclusive) 
      * 
      */
-    private Float aspectRatio;
+    private Double aspectRatio;
     /**
      * The floating-point vertical field of view in radians. (required)<br> 
      * Minimum: 0.0 (exclusive) 
      * 
      */
-    private Float yfov;
+    private Double yfov;
     /**
      * The floating-point distance to the far clipping plane. (optional)<br> 
      * Minimum: 0.0 (exclusive) 
      * 
      */
-    private Float zfar;
+    private Double zfar;
     /**
      * The floating-point distance to the near clipping plane. (required)<br> 
      * Minimum: 0.0 (exclusive) 
      * 
      */
-    private Float znear;
+    private Double znear;
 
     /**
      * The floating-point aspect ratio of the field of view. (optional)<br> 
@@ -55,7 +55,7 @@ public class CameraPerspective
      * the given constraints
      * 
      */
-    public void setAspectRatio(Float aspectRatio) {
+    public void setAspectRatio(Double aspectRatio) {
         if (aspectRatio == null) {
             this.aspectRatio = aspectRatio;
             return ;
@@ -73,7 +73,7 @@ public class CameraPerspective
      * @return The aspectRatio
      * 
      */
-    public Float getAspectRatio() {
+    public Double getAspectRatio() {
         return this.aspectRatio;
     }
 
@@ -87,7 +87,7 @@ public class CameraPerspective
      * the given constraints
      * 
      */
-    public void setYfov(Float yfov) {
+    public void setYfov(Double yfov) {
         if (yfov == null) {
             throw new NullPointerException((("Invalid value for yfov: "+ yfov)+", may not be null"));
         }
@@ -104,7 +104,7 @@ public class CameraPerspective
      * @return The yfov
      * 
      */
-    public Float getYfov() {
+    public Double getYfov() {
         return this.yfov;
     }
 
@@ -117,7 +117,7 @@ public class CameraPerspective
      * the given constraints
      * 
      */
-    public void setZfar(Float zfar) {
+    public void setZfar(Double zfar) {
         if (zfar == null) {
             this.zfar = zfar;
             return ;
@@ -135,7 +135,7 @@ public class CameraPerspective
      * @return The zfar
      * 
      */
-    public Float getZfar() {
+    public Double getZfar() {
         return this.zfar;
     }
 
@@ -149,7 +149,7 @@ public class CameraPerspective
      * the given constraints
      * 
      */
-    public void setZnear(Float znear) {
+    public void setZnear(Double znear) {
         if (znear == null) {
             throw new NullPointerException((("Invalid value for znear: "+ znear)+", may not be null"));
         }
@@ -166,7 +166,7 @@ public class CameraPerspective
      * @return The znear
      * 
      */
-    public Float getZnear() {
+    public Double getZnear() {
         return this.znear;
     }
 

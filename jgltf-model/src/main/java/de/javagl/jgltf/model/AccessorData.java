@@ -39,7 +39,7 @@ import java.nio.ByteBuffer;
  *   {@link AccessorShortData}</li>
  *   <li>For <code>int.class</code>, the implementation is an 
  *   {@link AccessorIntData}</li>
- *   <li>For <code>float.class</code>, the implementation is an 
+ *   <li>For <code>double.class</code>, the implementation is an
  *   {@link AccessorFloatData}</li>
  * </ul>
  */
@@ -47,7 +47,7 @@ public interface AccessorData
 {
     /**
      * Returns the type of the components that this class provides access to.
-     * This will usually be a primitive type, like <code>float.class</code>
+     * This will usually be a primitive type, like <code>double.class</code>
      * or <code>short.class</code>.
      * 
      * @return The component type

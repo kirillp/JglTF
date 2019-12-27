@@ -56,15 +56,15 @@ class Cameras
      * created and returned. 
      * 
      * @param cameraModel The {@link CameraModel}
-     * @param aspectRatio An optional aspect ratio to use. If this is 
+     * @param aspectRatio An optional aspect ratio to use. If this is
      * <code>null</code>, then the aspect ratio of the camera will be used.
      * @param result The array storing the result
      * @return The result array
      */
-    static float[] computeProjectionMatrix(
-        CameraModel cameraModel, Float aspectRatio, float result[])
+    static double[] computeProjectionMatrix(
+        CameraModel cameraModel, Double aspectRatio, double[] result)
     {
-        float localResult[] = Utils.validate(result, 16);
+        double localResult[] = Utils.validate(result, 16);
         
         CameraPerspectiveModel cameraPerspective = 
             cameraModel.getCameraPerspectiveModel();
@@ -74,9 +74,9 @@ class Cameras
         
         if (cameraPerspective != null)
         {
-            float fovRad = cameraPerspective.getYfov();
-            float fovDeg = (float)Math.toDegrees(fovRad);
-            float localAspectRatio = 1.0f;
+            double fovRad = cameraPerspective.getYfov();
+            double fovDeg = Math.toDegrees(fovRad);
+            double localAspectRatio = 1.0f;
             if (aspectRatio != null)
             {
                 localAspectRatio = aspectRatio;
@@ -85,8 +85,8 @@ class Cameras
             {
                 localAspectRatio = cameraPerspective.getAspectRatio();
             }
-            float zNear = cameraPerspective.getZnear();
-            Float zFar = cameraPerspective.getZfar();
+            double zNear = cameraPerspective.getZnear();
+            Double zFar = cameraPerspective.getZfar();
             if (zFar == null)
             {
                 MathUtils.infinitePerspective4x4(
@@ -100,10 +100,10 @@ class Cameras
         }
         else if (cameraOrthographic != null)
         {
-            float xMag = cameraOrthographic.getXmag();
-            float yMag = cameraOrthographic.getYmag();
-            float zNear = cameraOrthographic.getZnear();
-            float zFar = cameraOrthographic.getZfar();
+            double xMag = cameraOrthographic.getXmag();
+            double yMag = cameraOrthographic.getYmag();
+            double zNear = cameraOrthographic.getZnear();
+            double zFar = cameraOrthographic.getZfar();
             MathUtils.setIdentity4x4(localResult);
             localResult[0] = 1.0f / xMag;
             localResult[5] = 1.0f / yMag;

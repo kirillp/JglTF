@@ -442,7 +442,7 @@ class GltfModelCreatorV1
         for (Entry<String, Skin> entry : skins.entrySet())
         {
             Skin skin = entry.getValue();
-            float[] bindShapeMatrix = skin.getBindShapeMatrix();
+            double[] bindShapeMatrix = skin.getBindShapeMatrix();
             DefaultSkinModel skinModel = new DefaultSkinModel();
             skinModel.setBindShapeMatrix(bindShapeMatrix);
             gltfModel.addSkinModel(skinModel);
@@ -964,10 +964,10 @@ class GltfModelCreatorV1
                 nodeModel.setCameraModel(cameraModel);
             }
             
-            float matrix[] = node.getMatrix();
-            float translation[] = node.getTranslation();
-            float rotation[] = node.getRotation();
-            float scale[] = node.getScale();
+            double matrix[] = node.getMatrix();
+            double translation[] = node.getTranslation();
+            double rotation[] = node.getRotation();
+            double scale[] = node.getScale();
             nodeModel.setMatrix(Optionals.clone(matrix));
             nodeModel.setTranslation(Optionals.clone(translation));
             nodeModel.setRotation(Optionals.clone(rotation));

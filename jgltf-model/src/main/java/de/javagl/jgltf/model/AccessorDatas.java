@@ -82,7 +82,7 @@ public class AccessorDatas
         {
             return createInt(accessorModel, byteBuffer);
         }
-        if (accessorModel.getComponentDataType() == float.class)
+        if (accessorModel.getComponentDataType() == double.class)
         {
             return createFloat(accessorModel, byteBuffer);
         }
@@ -190,7 +190,7 @@ public class AccessorDatas
      * Returns whether the given constant is <code>GL_FLOAT</code>.
      * 
      * @param type The type constant
-     * @return Whether the type is a <code>float</code> type
+     * @return Whether the type is a <code>double</code> type
      */
     public static boolean isFloatType(int type)
     {

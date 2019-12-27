@@ -214,7 +214,7 @@ public class Buffers
     
     /**
      * Create a new direct byte buffer with native byte order that has the
-     * same contents as the given float buffer.
+     * same contents as the given double buffer.
      *  
      * @param buffer The input buffer
      * @return The new byte buffer
