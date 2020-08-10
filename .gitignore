@@ -64,4 +64,4 @@
 /jgltf-model-builder/target
 /jgltf-model-builder/.classpath
 /jgltf-model-builder/.project
-/jgltf-parent.iml
+*.iml
